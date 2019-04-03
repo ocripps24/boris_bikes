@@ -1,6 +1,6 @@
 require 'docking_station'
 
-describe DockingStation do
+describe Bike do
   it { is_expected.to respond_to :working?}
 end
 
