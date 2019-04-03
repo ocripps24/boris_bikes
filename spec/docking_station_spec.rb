@@ -7,7 +7,10 @@ describe DockingStation do
   it 'expected to return a working bike' do
     bike = subject.release_bike
     expect(bike).to be_working
-  end 
+  end
+
+  it { is_expected.to respond_to(:dock_bike).with(1).argument }
+
 
 end
 
@@ -16,7 +19,3 @@ end
 #     expect(subject).to respond_to :release_bike
 #   end
 # end
-
- # Add a test to your DockingStation specification that
- # a) gets a bike, and then
- # b) expects the bike to be working
