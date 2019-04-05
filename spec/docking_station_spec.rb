@@ -5,6 +5,14 @@ describe DockingStation do
 
   it { is_expected.to respond_to :release_bike }
 
+  describe '#initialize' do
+    it "capable of setting variable capacity" do
+      station = DockingStation.new(50)
+      50.times { station.dock_bike(Bike.new) }
+      expect { station.dock_bike(Bike.new) }.to raise_error "Dock is full"
+    end
+  end
+
   describe '#release_bike' do
     it 'releases a bike' do
       bike = Bike.new

@@ -3,9 +3,12 @@ require_relative 'bike'
 class DockingStation
 
   attr_reader :bike_list
+  attr_accessor :capacity
+  attr_reader :bike
 
-  def initialize
+  def initialize(capacity=DEFAULT_CAPACITY)
     @bike_list = []
+    @capacity = capacity
   end
 
   DEFAULT_CAPACITY = 20
@@ -22,7 +25,7 @@ class DockingStation
 
   private
   def full?
-    @bike_list.count >= DEFAULT_CAPACITY
+    @bike_list.count >= capacity
   end
 
   def empty?
@@ -31,9 +34,3 @@ class DockingStation
   end
 
 end
-
-# Define a constant, DEFAULT_CAPACITY, that stores the number 20. Do this within the DockingStation class.
-
-# Remove references to the magic number 20 in your implementation, using DEFAULT_CAPACITY instead.
-
-# Refactor your tests to use this new constant instead of the magic number 20.
